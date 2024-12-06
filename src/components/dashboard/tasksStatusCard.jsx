@@ -3,16 +3,16 @@ import React from 'react';
 import {  MoreCircle } from 'iconsax-react-native';
 import { ThemeColors } from '../../theme/colors';
 
-const TasksStatusCard = ({item}) => {
+const TasksStatusCard = ({item,value}) => {
   return (
     <View style={[styles.container, {backgroundColor: item.color}]}>
      <View>
-     <Text style={styles.value} >{item.value} </Text>
+     <Text style={styles.value} >{value} </Text>
      <Text style={styles.status} >{item.status} </Text>
      </View>
      <View>
       <Pressable>
-      <MoreCircle size="32" color={ThemeColors.white} variant="Bold"/>
+      <MoreCircle size="32" color={ThemeColors.white} />
       </Pressable>
      </View>
     </View>

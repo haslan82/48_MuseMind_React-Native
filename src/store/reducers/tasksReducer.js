@@ -2,7 +2,26 @@ import {ThemeColors} from '../../theme/colors';
 import {ADDTASK} from '../types/tasksTypes';
 
 const initialState = {
-  tasks: [],
+  tasks: [
+   /*  {
+      id:1,
+      title:"Dashboard dizayn for admin",
+      date:'22.Ekim.2012',
+      status: 'In Progress'
+    },
+    {
+      id:2,
+      title:"redux",
+      date:'22.Ekim.2012',
+      status: 'In Review'
+    },
+    {
+      id:3,
+      title:"React Native",
+      date:'22.Ekim.2012',
+      status: 'Complated'
+    } */
+  ],
   testMessage: 'Merhaba',
   taskStatus: [
     {
@@ -31,7 +50,7 @@ const initialState = {
       status: 'Complated',
       value: 0,
       color: ThemeColors.green,
-    },
+    }, 
   ],
 };
 const tasksReducer = (state = initialState, action) => {
@@ -39,7 +58,7 @@ const tasksReducer = (state = initialState, action) => {
     case ADDTASK:
       return {
         ...state,
-        tasks: state.tasks.push(action.payload),
+        tasks: [action.payload,...state.tasks ],
       };
 
     default:
