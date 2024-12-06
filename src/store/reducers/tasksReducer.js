@@ -1,5 +1,5 @@
 import {ThemeColors} from '../../theme/colors';
-import {ADDTASK} from '../types/tasksTypes';
+import {ADDTASK, DELETETASK} from '../types/tasksTypes';
 
 const initialState = {
   tasks: [
@@ -60,7 +60,11 @@ const tasksReducer = (state = initialState, action) => {
         ...state,
         tasks: [action.payload,...state.tasks ],
       };
-
+      case DELETETASK:
+        return {
+          ...state,
+          tasks: state?.tasks?.filter(task=>task.id != action.payload),
+        };
     default:
       return state;
   }

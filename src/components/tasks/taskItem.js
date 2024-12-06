@@ -1,12 +1,29 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Alert, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {ThemeColors} from '../../theme/colors';
-import {Calendar, Calendar1, More} from 'iconsax-react-native';
+import {Calendar, Calendar1, Edit, More, Trash} from 'iconsax-react-native';
 import {setColor} from '../../utils/functions';
+import { useDispatch } from 'react-redux';
+import { deleteTask } from '../../store/actions/TasksAction';
 
 const TaskItem = ({item}) => {
+  const dispatch = useDispatch();
   const deleteItem = ()=>{
-    console.log(item)
+    //console.log(item)
+
+Alert.alert('Uyarı', "Kayıt silinecek emin misiniz ?",
+[
+  {
+    text: 'Sil',
+    onPress: () => dispatch(deleteTask(item.id)),
+  },
+  {
+    text: 'Vazgeç',
+    onPress: () => console.log('Cancel Pressed'),
+    style: 'cancel',
+  },
+
+]);
   }
   return (
     <View style={styles.container}>
@@ -32,11 +49,19 @@ const TaskItem = ({item}) => {
           <Text style={styles.date}>{item.date} </Text>
         </View>
       </View>
+     <View style={{flexDirection:"row", alignItems: "center", justifyContent:"center"}}>
+     <TouchableOpacity
+     style={{marginHorizontal:10}}
+     onPress={deleteItem}
+     >
+     <Edit size={25} color={ThemeColors.black} variant="Outline" />
+     </TouchableOpacity>
      <TouchableOpacity
      onPress={deleteItem}
      >
-     <More size={25} color={ThemeColors.black} variant="Outline" />
+     <Trash size={25} color={ThemeColors.black} variant="Outline" />
      </TouchableOpacity>
+     </View>
     </View>
   );
 };
