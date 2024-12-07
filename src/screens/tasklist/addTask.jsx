@@ -9,9 +9,9 @@ import { addNewTask } from '../../store/actions/TasksAction';
 import { statusTypes } from '../../utils/constant';
 
 const AddTask = () => {
-  const [title, setTitle] = useState('React-Native');
-  const [date, setDate] = useState('12 Aralık 2022');
-  const [status, setStatus] = useState(statusTypes.INREVIEW);
+  const [title, setTitle] = useState("");
+  const [date, setDate] = useState("");
+  const [status, setStatus] = useState("");
   const [isModalVisible, setModalVisible] = useState(false);
 
   const dispatch = useDispatch();
@@ -29,7 +29,7 @@ const AddTask = () => {
 
     // 2 saniye bekleyip TaskList sayfasına yönlendirme
     setTimeout(() => {
-      navigation.navigate('TaskList');
+      navigation.navigate('Dashboard');
     }, 2000);
   };
 
@@ -85,6 +85,10 @@ const AddTask = () => {
   );
 };
 
+
+export default AddTask;
+
+
 const styles = StyleSheet.create({
   dropdown: {
     padding: 15,
@@ -127,7 +131,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AddTask;
+
 
 
 

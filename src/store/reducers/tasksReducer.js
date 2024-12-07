@@ -1,9 +1,9 @@
 import {ThemeColors} from '../../theme/colors';
-import {ADDTASK, DELETETASK} from '../types/tasksTypes';
+import {ADDTASK, DELETETASK, UPDATETASK} from '../types/tasksTypes';
 
 const initialState = {
   tasks: [
-   /*  {
+    /*  {
       id:1,
       title:"Dashboard dizayn for admin",
       date:'22.Ekim.2012',
@@ -50,7 +50,7 @@ const initialState = {
       status: 'Complated',
       value: 0,
       color: ThemeColors.green,
-    }, 
+    },
   ],
 };
 const tasksReducer = (state = initialState, action) => {
@@ -58,13 +58,20 @@ const tasksReducer = (state = initialState, action) => {
     case ADDTASK:
       return {
         ...state,
-        tasks: [action.payload,...state.tasks ],
+        tasks: [action.payload, ...state.tasks],
       };
-      case DELETETASK:
-        return {
-          ...state,
-          tasks: state?.tasks?.filter(task=>task.id != action.payload),
-        };
+    case DELETETASK:
+      return {
+        ...state,
+        tasks: state?.tasks?.filter(task => task.id != action.payload),
+      };
+    case UPDATETASK:
+      return {
+        ...state,
+        tasks: state?.tasks?.map(task =>
+          task.id === action.payload.id ? action.payload : task, 
+        ),
+      };
     default:
       return state;
   }

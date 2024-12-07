@@ -1,30 +1,32 @@
 import {Alert, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React from 'react';
 import {ThemeColors} from '../../theme/colors';
-import {Calendar, Calendar1, Edit, More, Trash} from 'iconsax-react-native';
+import {Calendar, Edit, Trash} from 'iconsax-react-native';
 import {setColor} from '../../utils/functions';
-import { useDispatch } from 'react-redux';
-import { deleteTask } from '../../store/actions/TasksAction';
+import {useDispatch} from 'react-redux';
+import {deleteTask} from '../../store/actions/TasksAction';
+import {useNavigation} from '@react-navigation/native';
+import {UPDATETASK} from '../../utils/Routes';
 
 const TaskItem = ({item}) => {
+
+  //!!  console.log(item)
+  const navigation = useNavigation();
   const dispatch = useDispatch();
-  const deleteItem = ()=>{
-    //console.log(item)
+  const deleteItem = () => {
+   
 
-Alert.alert('Uyarı', "Kayıt silinecek emin misiniz ?",
-[
-  {
-    text: 'Sil',
-    onPress: () => dispatch(deleteTask(item.id)),
-  },
-  {
-    text: 'Vazgeç',
-    onPress: () => console.log('Cancel Pressed'),
-    style: 'cancel',
-  },
-
-]);
-  }
+    Alert.alert('Uyarı', 'Kayıt silinecek emin misiniz ?', [
+      {
+        text: 'Sil',
+        onPress: () => dispatch(deleteTask(item.id)),
+      },
+      {
+        text: 'Vazgeç',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+    ]);
+  };
   return (
     <View style={styles.container}>
       <View style={{justifyContent: 'space-around'}}>
@@ -39,7 +41,7 @@ Alert.alert('Uyarı', "Kayıt silinecek emin misiniz ?",
               alignItems: 'center',
               padding: 5,
               paddingVertical: 8,
-              borderRadius: 100,
+              borderRadius: 10,
             }}>
             <Text style={styles.status}>{item.status} </Text>
           </View>
@@ -49,19 +51,22 @@ Alert.alert('Uyarı', "Kayıt silinecek emin misiniz ?",
           <Text style={styles.date}>{item.date} </Text>
         </View>
       </View>
-     <View style={{flexDirection:"row", alignItems: "center", justifyContent:"center"}}>
-     <TouchableOpacity
-     style={{marginHorizontal:10}}
-     onPress={deleteItem}
-     >
-     <Edit size={25} color={ThemeColors.black} variant="Outline" />
-     </TouchableOpacity>
-     <TouchableOpacity
-     onPress={deleteItem}
-     >
-     <Trash size={25} color={ThemeColors.black} variant="Outline" />
-     </TouchableOpacity>
-     </View>
+      <View
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <TouchableOpacity
+          style={{marginHorizontal: 10}}
+          onPress={() => navigation.navigate(UPDATETASK, {task: item})} //!!!!!!
+        >
+          <Edit size={25} color={ThemeColors.black} variant="Outline" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={deleteItem}>
+          <Trash size={25} color={ThemeColors.black} variant="Outline" />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
