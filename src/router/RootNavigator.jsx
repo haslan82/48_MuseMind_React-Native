@@ -29,7 +29,7 @@ const RootNavigator = () => {
         <Stack.Screen
           options={({route, navigation}) => ({
             headerShadowVisible: false,
-            headerBackTitle: 'Back',
+            headerBackVisible: false,
             headerTintColor: ThemeColors.black,
             headerTitleStyle: {
               fontSize: 22,
