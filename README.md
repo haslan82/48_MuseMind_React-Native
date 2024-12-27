@@ -17,12 +17,6 @@ Amacım, kullanıcı dostu, modern ve işlevsel bir uygulama sunmak.
 
 
 
-
-![](./src/assets/image/49_museMind-gif11.gif)
-
-
-
-
 ##  Designed by <a href="https://www.linkedin.com/in/h%C3%BCseyin-aslan-128519203/" target="_blank">Hüseyin ASLAN</a> 
 
 
@@ -32,3 +26,7 @@ Amacım, kullanıcı dostu, modern ve işlevsel bir uygulama sunmak.
 victory kütüphanesi için 
  "victory-native": "^37.0.3-next.0" instalation
 https://commerce.nearform.com/open-source/victory/docs/api/victory-pie
+
+###GIF
+
+![](./src/assets/image/49_museMind-gif11.gif)
