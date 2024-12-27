@@ -23,7 +23,7 @@ Amacım, kullanıcı dostu, modern ve işlevsel bir uygulama sunmak.
 
 
 
-##  Designed by <a href="https://www.linkedin.com/feed/update/urn:li:activity:7272188749919186944/" target="_blank">Hüseyin ASLAN</a> 
+##  Designed by <a href="https://www.linkedin.com/in/h%C3%BCseyin-aslan-128519203/" target="_blank">Hüseyin ASLAN</a> 
 
 
 
