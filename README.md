@@ -27,6 +27,6 @@ victory kütüphanesi için
  "victory-native": "^37.0.3-next.0" instalation
 https://commerce.nearform.com/open-source/victory/docs/api/victory-pie
 
-###GIF
+### GIF
 
 ![](./src/assets/image/49_museMind-gif11.gif)
