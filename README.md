@@ -20,7 +20,6 @@ Amacım, kullanıcı dostu, modern ve işlevsel bir uygulama sunmak.
 ##  Designed by <a href="https://www.linkedin.com/in/h%C3%BCseyin-aslan-128519203/" target="_blank">Hüseyin ASLAN</a> 
 
 
-
 ### Kütüphane
 
 victory kütüphanesi için 
